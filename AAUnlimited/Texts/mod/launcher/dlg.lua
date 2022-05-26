@@ -169,11 +169,8 @@ end
 local step = "x6"
 
 local function loadPPeX()
-	if (Config.bPersistPPeXConsole) then
-		os.execute("START \"\" /B " .. "\"" .. aau_path("ppex", "PPeXM64.exe\" \"" .. play_path("data") .. "\""))		
-	else
-		os.execute("START \"\" /B " .. "\"" .. aau_path("ppex", "PPeXM64.exe\" \"" .. play_path("data") .. "\" -nowindow"))
-	end
+	local cmd = string.format("%s %s -nowindow", aau_path("ppex", "PPeXM64.exe"), play_path("data"))
+	io.popen(cmd)
 end
 
 local buts = {}
